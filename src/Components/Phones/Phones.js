@@ -1,9 +1,21 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import PhoneShow from '../PhoneShow/PhoneShow';
 
 const Phones = () => {
-    return (
-        <div>
 
+    const [phones, setPhones] = useState([]);
+    axios.get('https://openapi.programming-hero.com/api/phones?search=iphone')
+        .then(data => {
+            const allPhones = data.data.data;
+            // console.log(allPhones)
+            setPhones(allPhones)
+        })
+    return (
+        <div className='d-flex'>
+            {
+                phones.map(phn => <PhoneShow phn={phn}></PhoneShow>)
+            }
         </div>
     );
 };
