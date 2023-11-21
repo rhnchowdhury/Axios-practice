@@ -3,7 +3,7 @@ import React from 'react';
 const PhoneShow = ({ phn }) => {
     const { phone_name, image } = phn
     return (
-        <div className='d-flex flex-wrap col-4 '>
+        <div className='d-flex flex-column'>
             <div className="card" style={{ width: '18rem' }}>
                 <img src={image} className="card-img-top" alt="..." />
                 <div className="card-body">

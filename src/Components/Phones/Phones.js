@@ -5,16 +5,19 @@ import PhoneShow from '../PhoneShow/PhoneShow';
 const Phones = () => {
 
     const [phones, setPhones] = useState([]);
-    axios.get('https://openapi.programming-hero.com/api/phones?search=iphone')
+
+    axios.get('phone.json')
+        // axios.get('https://openapi.programming-hero.com/api/phones?search=iphone')
         .then(data => {
             const allPhones = data.data.data;
-            // console.log(allPhones)
+            console.log(allPhones)
             setPhones(allPhones)
-        })
+        });
+
     return (
         <div className='d-flex'>
             {
-                phones.map(phn => <PhoneShow phn={phn}></PhoneShow>)
+                phones.map((phn, idx) => <PhoneShow key={idx} phn={phn}></PhoneShow>)
             }
         </div>
     );
